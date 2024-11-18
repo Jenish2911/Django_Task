@@ -1,4 +1,4 @@
-# Gas Utility Customer Service Portal
+# Gas Utility Customer Service Portal http://3.94.113.103:8000
 
 A Django-based web application for managing customer service requests in a gas utility company. This portal allows customers to submit service requests, track their status, and manage their accounts efficiently.
 
@@ -30,6 +30,11 @@ A Django-based web application for managing customer service requests in a gas u
 - Bootstrap 5.1.3
 - HTML/CSS
 - JavaScript
+
+## Deployment Stack
+- Django 5.1.3
+- PM2 for process management
+- AWS EC2 t2.micro instance
 
 ## Installation
 
@@ -81,6 +86,40 @@ python manage.py collectstatic
 python manage.py runserver
 ```
 This will start the server at localhost:8000.
+
+## Deployment
+1. Run the above steps to start the server on the AWS EC2 Instance.
+Note: To start the server on the EC2 instance run the below command so that the application begins on the EC2 server.
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+This will start the development server at http://{Public IP}:8000/
+
+2. Now to keep the server up and running, I used pm2. Below are the commands to start the server using pm2.
+```bash
+# Install PM2
+npm install pm2 -g
+
+# Start the application
+pm2 start ecosystem.config.js
+
+# Monitor the application
+pm2 monit
+
+# View logs
+pm2 logs gas_utility_app
+
+# Restart the application
+pm2 restart gas_utility_ap
+```
+
+3. Check whether the server is up and running. If it is, save the pm2 so that even if the EC2 instance is restarted or shut down the server is live.
+```bash
+# Saves the list of processes managed by pm2. 
+pm2 save
+```
+
+4. The website is up and running until the EC2 Instance is terminated. (http://3.94.113.103:8000/)
 
 ## Application Code Base
 ```
@@ -138,12 +177,6 @@ gas_utility_app/                  # Root project directory
     │   # Process forms
     │   # Render templates
     │
-    ├── tests/                # Test directory
-    │   ├── __init__.py
-    │   ├── test_models.py    # Model tests
-    │   ├── test_views.py     # View tests
-    │   └── test_forms.py     # Form tests
-    │
     ├── templates/            # HTML templates
     │   └── customer_portal/
     │       ├── base.html             # Base template with common elements
@@ -158,11 +191,7 @@ gas_utility_app/                  # Root project directory
     └── static/              # App-specific static files
         └── customer_portal/
             ├── css/         # CSS files
-            │   └── style.css
-            ├── js/          # JavaScript files
-            │   └── main.js
-            └── images/      # Image files
-                └── logo.png
+                └── style.css
 
 ```
 
@@ -257,4 +286,5 @@ pending = ServiceRequest.objects.filter(status='PENDING')
 
 ## Contact
 
-Your Name - jenishmistry2911@gmail.com
+Email - jenishmistry2911@gmail.com
+Deployment Link - http://3.94.113.103:8000/
