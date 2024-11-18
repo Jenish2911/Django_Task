@@ -1,0 +1,19 @@
+{% extends 'customer_portal/base.html' %}
+
+{% block content %}
+<h2>Service Request Details</h2>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ service_request.get_request_type_display }}</h5>
+        <p class="card-text">{{ service_request.description }}</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Status: {{ service_request.get_status_display }}</li>
+            <li class="list-group-item">Created: {{ service_request.created_at }}</li>
+            <li class="list-group-item">Last Updated: {{ service_request.updated_at }}</li>
+            {% if service_request.attachment %}
+            <li class="list-group-item">Attachment: <a href="{{ service_request.attachment.url }}">Download</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

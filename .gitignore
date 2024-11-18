@@ -1,0 +1,63 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Django
+*.log
+*.pot
+*.pyc
+*.mo
+*.db
+*.sqlite3
+*.pyo
+*.pyd
+__pycache__/
+db.sqlite3
+*.sqlite3-journal
+
+# Environments
+.env
+.venv/
+env/
+venv/
+myenv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations
+*/migrations/*.pyc
+*/migrations/*.pyo
+*/migrations/*.pyd
+*/migrations/__pycache__/
+*/migrations/*.so
+*/migrations/*.log
+*/migrations/*.pot
+*/migrations/*.mo
+*/migrations/*.db
+*/migrations/*.sqlite3
+*/migrations/*.sqlite3-journal
+*/migrations/env/
+*/migrations/venv/
+*/migrations/ENV/
+*/migrations/env.bak/
+*/migrations/venv.bak/
+*/migrations/.env
+*/migrations/.venv/
+*/migrations/.vscode/
+*/migrations/.idea/
+*/migrations/*.sublime-project
+*/migrations/*.sublime-workspace

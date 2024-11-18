@@ -1,0 +1,13 @@
+{% extends 'customer_portal/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Welcome to Gas Utility Customer Portal</h1>
+    <p>Submit and track your service requests online</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'customer_portal:service_request_create' %}" class="btn btn-primary">Submit New Request</a>
+    {% else %}
+    <a href="{% url 'login' %}" class="btn btn-primary">Login to Submit Request</a>
+    {% endif %}
+</div>
+{% endblock %}
