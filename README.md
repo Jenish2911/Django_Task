@@ -35,8 +35,8 @@ A Django-based web application for managing customer service requests in a gas u
 
 1. Clone the repository
 ```bash
-git clone <repository-url>
-cd gas_utility_app
+git clone https://github.com/Jenish2911/Django_Task
+cd Django_Task
 ```
 
 2. Create and activate virtual environment
@@ -54,6 +54,10 @@ source myenv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+
+4. Go into gas_utility_app directory
+```bash
+cd gas_utility_app
 
 4. Set up the database
 ```bash
@@ -75,6 +79,7 @@ python manage.py collectstatic
 ```bash
 python manage.py runserver
 ```
+This will start the server at localhost:8000.
 
 ## Application Code Base
 ```
