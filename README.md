@@ -58,24 +58,25 @@ pip install -r requirements.txt
 4. Go into gas_utility_app directory
 ```bash
 cd gas_utility_app
+```
 
-4. Set up the database
+5. Set up the database
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-5. Create a superuser
+6. Create a superuser
 ```bash
 python manage.py createsuperuser
 ```
 
-6. Collect static files
+7. Collect static files
 ```bash
 python manage.py collectstatic
 ```
 
-7. Run the development server
+8. Run the development server
 ```bash
 python manage.py runserver
 ```
